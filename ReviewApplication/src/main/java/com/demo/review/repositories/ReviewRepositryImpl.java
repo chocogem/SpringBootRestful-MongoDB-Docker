@@ -6,15 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.demo.review.entities.FoodDictionary;
 import com.demo.review.entities.Review;
 @Component
 public class ReviewRepositryImpl implements ReviewRepositoryCustom {
-	//@Autowired
-	//ReviewRepository reviewRepository;
+	@Autowired
+	ReviewRepository reviewRepository;
 	 public List<Review> findReviewById(){
 		 List<Review> reviews = new ArrayList<Review>();
 		 Review review = new Review();
-		 review.setReviewTitle("SearchReviewById");
+		 review.setReviewID(0);
 		 reviews.add(review);
 		 return reviews;
 	 }
@@ -22,8 +23,12 @@ public class ReviewRepositryImpl implements ReviewRepositoryCustom {
 	 public List<Review> findReviewByText(){
 		 List<Review> reviews = new ArrayList<Review>();
 		 Review review = new Review();
-		 review.setReviewTitle("SearchReviewById");
+		 review.setReviewID(0);
 		 reviews.add(review);
 		 return reviews;
 	 }
+	 
+	 
+	 
+	 
 }

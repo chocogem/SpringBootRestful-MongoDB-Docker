@@ -47,7 +47,13 @@
 		<groupId>com.h2database</groupId>
 		<artifactId>h2</artifactId>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>r05</version>
+		</dependency>
+		
 <!-- 		<dependency> -->
 <!-- 			<groupId>mysql</groupId> -->
 <!-- 			<artifactId>mysql-connector-java</artifactId> -->
