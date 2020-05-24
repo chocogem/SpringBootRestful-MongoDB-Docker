@@ -17,6 +17,8 @@ public interface ReviewRepository extends JpaRepository<Review, Integer>{
 	List<Review> findReviewById(@Param("id") Integer id);
 	
 	@Query(value ="SELECT UUID() AS guid,reviewID,replace(group_concat(review_text),:text,concat('<keyword>',:text,'<keyword>')) AS review_text,1 AS seq from (select * FROM REVIEW WHERE review_text like %:text% order by reviewID,seq)  group by reviewID",nativeQuery = true)
-	//@Query("SELECT r FROM Review r WHERE r.reviewText like %:text%")
-    List<Review> findReviewByText(@Param("text") String text1);
+	List<Review> findReviewByText(@Param("text") String text);
+	
+	@Query(value =" DELETE from REVIEW WHERE reviewID = :id ",nativeQuery = true)
+    void deleteReviewByID(@Param("id") Integer id);
 }
