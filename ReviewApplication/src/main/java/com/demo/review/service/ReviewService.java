@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,7 @@ import com.demo.review.entities.ReviewTransaction;
 import com.demo.review.repositories.ReviewRepository;
 import com.demo.review.repositories.ReviewTransactionRepository;
 
-
+@Transactional
 @Service
 public class ReviewService {
 
@@ -41,10 +43,10 @@ public class ReviewService {
 			try {
 			List<ReviewTransaction> reviewTransaction = reviewTransactionRepository.findReviewTransactionById(reviewID);
 			if(reviewTransaction!=null&&!reviewTransaction.isEmpty()) {
-				 SimpleDateFormat formatterDB=new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");  
+				 SimpleDateFormat formatterDB=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 			     Date editDatetime = formatterDB.parse(editReview.getDatetimeEdit()); 
-			     Date lastEditDatetime = reviewTransaction.get(0).getEditedDatetime();
-			     //Check cocurrent data
+			     Date lastEditDatetime = reviewTransaction.get(0).getModifiedDatetime();
+			     //Check concurrent data
 			     if(lastEditDatetime.compareTo(editDatetime)>0) {
 			    	 //return error another people updated this record.
 			    	 editResponse.setSuccess(false);
@@ -54,7 +56,7 @@ public class ReviewService {
 			     }else {
 
 			    	 String reviewText = editReview.getReviewText();
-			    	 reviewRepository.deleteReviewByID(reviewID);
+			    	 reviewRepository.deleteByReviewID(reviewID);
 			    	 reviewController.editReviewData(reviewText, reviewID);
 			    	 editResponse.setSuccess(true);
 			    	 editResponse.setMessage("Update data successfully.");

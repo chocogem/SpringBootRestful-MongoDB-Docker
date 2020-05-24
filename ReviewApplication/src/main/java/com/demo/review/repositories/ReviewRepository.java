@@ -6,6 +6,7 @@ package com.demo.review.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -19,6 +20,9 @@ public interface ReviewRepository extends JpaRepository<Review, Integer>{
 	@Query(value ="SELECT UUID() AS guid,reviewID,replace(group_concat(review_text),:text,concat('<keyword>',:text,'<keyword>')) AS review_text,1 AS seq from (select * FROM REVIEW WHERE review_text like %:text% order by reviewID,seq)  group by reviewID",nativeQuery = true)
 	List<Review> findReviewByText(@Param("text") String text);
 	
-	@Query(value =" DELETE from REVIEW WHERE reviewID = :id ",nativeQuery = true)
+	Long deleteByReviewID(Integer id);
+	
+	@Modifying
+	@Query(value =" DELETE from Review r WHERE r.reviewID = :id ")
     void deleteReviewByID(@Param("id") Integer id);
 }

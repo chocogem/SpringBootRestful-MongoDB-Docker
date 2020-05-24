@@ -21,13 +21,14 @@ public class ReviewTransaction {
 	private Integer reviewID;
 	
 	@CreationTimestamp
-	@Column(updatable = false)
+	@Column(insertable = true,updatable=false)
 	private Date createdDatetime;
 	
 	@UpdateTimestamp
-	private Date editedDatetime;
+	@Column(insertable = false,updatable=true)
+	private Date modifiedDatetime;
 	@OneToMany(mappedBy="reviewID", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
 	List<Review>reviews;
 	
 	public int getReviewID() {
@@ -44,13 +45,13 @@ public class ReviewTransaction {
 	public void setCreatedDatetime(Date createdDatetime) {
 		this.createdDatetime = createdDatetime;
 	}
-	public Date getEditedDatetime() {
-		return editedDatetime;
-	}
-	public void setEditedDatetime(Date editedDatetime) {
-		this.editedDatetime = editedDatetime;
-	}
 
+	public Date getModifiedDatetime() {
+		return modifiedDatetime;
+	}
+	public void setModifiedDatetime(Date modifiedDatetime) {
+		this.modifiedDatetime = modifiedDatetime;
+	}
 	public List<Review> getReviews() {
 		return reviews;
 	}
