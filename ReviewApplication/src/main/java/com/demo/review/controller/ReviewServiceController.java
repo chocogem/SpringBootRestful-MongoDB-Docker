@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.review.entities.Review;
+import com.demo.review.service.ReviewService;
 @RestController
 public class ReviewServiceController {
 	@Autowired
-	private ReviewController reviewController;
+	private ReviewService reService;
 
 	
 	@RequestMapping(value = "/reviews/{id}", method = RequestMethod.GET)
-	public List<Review> searchReviewByID(@PathVariable String id) {
-		return reviewController.getReviewByID();
+	public List<Review> searchReviewByID(@PathVariable Integer id) {
+		return reService.getReviewByID(id);
 		
 	}
 	
 	
 	@RequestMapping(value = "/reviews", method = RequestMethod.GET)
-	public List<Review> searchReviewByText(@RequestParam("id") String id) {
-		return reviewController.getReviewByText();
+	public List<Review> searchReviewByText(@RequestParam("query") String text) {
+		return reService.getReviewByText(text);
 	}
 	
 	
