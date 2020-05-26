@@ -44,7 +44,7 @@ public class Review {
 		this.reviewID = reviewID;
 	}
 	public String getReviewText() {
-		return reviewText;
+		return reviewText.replace("%keyword%","<keyword>").replace("%/keyword%","</keyword>");
 	}
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
