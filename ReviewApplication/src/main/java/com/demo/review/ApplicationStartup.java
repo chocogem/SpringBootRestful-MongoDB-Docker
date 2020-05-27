@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -14,8 +15,6 @@ import org.springframework.stereotype.Component;
 import com.demo.review.controller.ReviewController;
 import com.demo.review.dictionary.repositories.FoodDictionaryRepository;
 import com.demo.review.entities.FoodDictionary;
-import com.demo.review.entities.Review;
-import com.demo.review.repositories.ReviewRepository;
 
 @Component
 public class ApplicationStartup 
@@ -30,11 +29,12 @@ implements ApplicationListener<ApplicationReadyEvent> {
   }
   
   private void init() {
-	  initFoodDictionary();
+	 // initFoodDictionary();
 	  initReviewData();
 	  
   }
   private void initFoodDictionary() {
+	  foodDictionaryRepository.deleteAll();
 	  InputStream  inputStream = null;
 	  Scanner sc = null;
 	  try {
@@ -51,6 +51,7 @@ implements ApplicationListener<ApplicationReadyEvent> {
 	    	  }
 	          String line = sc.nextLine();
 	          foodDictionary = new FoodDictionary();
+	          foodDictionary.setId(UUID.randomUUID().toString());
 	          foodDictionary.setKeyword(line);
 	          foodDictionaryList.add(foodDictionary);
 	          //System.out.println(line);
@@ -80,6 +81,7 @@ implements ApplicationListener<ApplicationReadyEvent> {
   
   private void initReviewData() {
 	  try {
+		 reviewController.clearData();
 	     ClassLoader classLoader = getClass().getClassLoader();
 	     InputStream  inputStream =  classLoader.getResourceAsStream("data/test_file.csv");
 		 reviewController.createReviewData(inputStream);

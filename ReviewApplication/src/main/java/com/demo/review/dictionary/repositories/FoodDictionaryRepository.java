@@ -1,10 +1,10 @@
 package com.demo.review.dictionary.repositories;
 
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.demo.review.entities.FoodDictionary;
-import com.demo.review.entities.Review;
 
-public interface FoodDictionaryRepository extends JpaRepository<FoodDictionary, Integer>{
+public interface FoodDictionaryRepository extends MongoRepository<FoodDictionary, Integer>{
 }
