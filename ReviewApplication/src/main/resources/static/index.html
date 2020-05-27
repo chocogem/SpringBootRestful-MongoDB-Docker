@@ -6,7 +6,8 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<style>
 	
-		#keywordTextBox {
+		
+		#reviewIdTextBox {
 		  
 		  background-position: 10px 12px; /* Position the search icon */
 		  background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -16,7 +17,7 @@
 		  border: 1px solid #ddd; /* Add a grey border */
 		  margin-bottom: 12px; /* Add some space below the input */
 		}
-		#reviewIdTextBox {
+		#reviewKeywordTextBox {
 		  
 		  background-position: 10px 12px; /* Position the search icon */
 		  background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -87,6 +88,12 @@
 			   width: 50%;
 			}
 			.searchId{
+			  /*the container must be positioned relative:*/
+			  position: relative;
+			  display: inline-block;
+			   width: 50%;
+			}
+			searchKeyword{
 			  /*the container must be positioned relative:*/
 			  position: relative;
 			  display: inline-block;
@@ -195,15 +202,15 @@
 	<script type="text/javascript">
 	
 		$(document).ready(function() {
-			 var countries = ["strawberry","truffle","pizza","croissant"];
+			 //var countries = ["strawberry","truffle","pizza","croissant"];
 			
-			autocomplete(document.getElementById("keywordTextBox"), countries);
+			//autocomplete(document.getElementById("reviewKeywordTextBox"), countries);
 			
-			$(document).delegate('.searchKeyword', 'click', function() { 
+			$(document).delegate('.searchReviewKeyword', 'click', function() { 
 				searchByKeyword();
 				
 			});
-			$(document).delegate('.searchReviewId', 'click', function() { 
+			$(document).delegate('.searchReviewKeyword', 'click', function() { 
 				var input = document.getElementById("reviewIdTextBox").value;
 				searchByReviewId(input,false);
 				
@@ -216,7 +223,11 @@
     				searchByReviewId(input,false);
      			}
 			});
-	
+			$("#reviewKeywordTextBox").keypress(function(event) {
+    			if (event.which == 13) {
+    				searchByKeyword();
+     			}
+			});
 		
 		});
 		
@@ -250,7 +261,6 @@
 				    "method": "PUT",
 				    "headers": {
 				      "content-type": "application/json",
-				      "postman-token": "f25cfaa2-ae4e-15cc-bea6-0095af1849ca"
 				    },
 				    "processData": false,
 				    "data":JSON.stringify({ review: editingtext, reviewID: rid ,version : version}),
@@ -279,7 +289,7 @@
 
 		
 		function searchByKeyword(){
-			input = document.getElementById("keywordTextBox").value;
+			input = document.getElementById("reviewKeywordTextBox").value;
 			$.getJSON('http://localhost:5555/reviews?query='+input, function(json) {
 				var tr=[];
 				$('#reviewTable tr:not(:first)').remove();
@@ -289,7 +299,7 @@
 					tr.push('<td>' + json[i].reviewID + '</td>');
 					tr.push('<td>' + json[i].review + '</td>');
 					tr.push('<td style="display:none;" >' + json[i].version + '</td>');
-					tr.push('<td><button class=\'edit\' type=\'button\'>Edit</button></td>');
+					tr.push('<td><button class=\'edit\'style="width:100px;" type=\'button\'>Edit</button></td>');
 					tr.push('</tr>');
 				}
 				$('table').append($(tr.join('')));
@@ -305,7 +315,7 @@
 				tr.push('<td>' + json.reviewID + '</td>');
 				tr.push('<td>' + json.review + '</td>');
 				tr.push('<td style="display:none;" >' + json.version + '</td>');
-				tr.push('<td><button class=\'edit\' type=\'button\' >Edit</button></td>');
+				tr.push('<td><button class=\'edit\' style="width:100px;" type=\'button\' >Edit</button></td>');
 				tr.push('</tr>');
 
 				$('table').append($(tr.join('')));
@@ -434,17 +444,18 @@
   </div>
   
 
-  <div class="autocomplete" >
-    <input autocomplete="off" id="keywordTextBox" type="text"  placeholder="Search by keyword..">
-    <button class="searchKeyword" type="button" >Search</button>
+<!--   <div class="autocomplete" > -->
+  <div class=searchReview >
+    <input autocomplete="off" id="reviewKeywordTextBox" type="text"  placeholder="Search by keyword..">
+    <button class="searchReviewKeyword" type="button" >Search</button>
   </div>
   
 
 <table id="reviewTable">
   <tr class="header">
-    <th style="width:60%;">ReviewID</th>
-    <th style="width:40%;">Review</th>
-    <th style="width:40%;">Action</th>
+    <th style="width:10%;">ReviewID</th>
+    <th style="width:80%;">Review</th>
+    <th style="width:10%;">Action</th>
   </tr>
 </table>
 	
