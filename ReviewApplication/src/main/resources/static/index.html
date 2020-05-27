@@ -196,61 +196,51 @@
 	
 		$(document).ready(function() {
 			 var countries = ["strawberry","truffle","pizza","croissant"];
+			
 			autocomplete(document.getElementById("keywordTextBox"), countries);
-		
-		});
+			
 			$(document).delegate('.searchKeyword', 'click', function() { 
 				searchByKeyword();
 				
 			});
 			$(document).delegate('.searchReviewId', 'click', function() { 
-				searchByReviewId();
+				var input = document.getElementById("reviewIdTextBox").value;
+				searchByReviewId(input,false);
 				
 			});
 			
 			
 			$("#reviewIdTextBox").keypress(function(event) {
     			if (event.which == 13) {
-    				searchByReviewId();
+    				var input = document.getElementById("reviewIdTextBox").value;
+    				searchByReviewId(input,false);
      			}
 			});
-			$(document).delegate('.delete', 'click', function() { 
-				if (confirm('Do you really want to delete record?')) {
-					var id = $(this).attr('id');
-					var parent = $(this).parent().parent();
-					$.ajax({
-						type: "DELETE",
-						url: "http://localhost/php-ajax-jquery-mysql-crud/delete.php?id=" + id,
-						cache: false,
-						success: function() {
-							parent.fadeOut('slow', function() {
-								$(this).remove();
-							});
-							location.reload(true)
-						},
-						error: function() {
-							alert('Error deleting record');
-						}
-					});
-				}
-			});
-			$(document).delegate('#reviewTable tr:not(:first)', 'click', function() {
-				var $row = $(this).closest("tr"),        
-			    $tds = $row.find("td:nth-child(2)");
-				var selectreview = $tds[0].innerText.replace('<keyword>','').replace('</keyword>','');
-			});
+	
+		
+		});
+		
+// 			$(document).delegate('#reviewTable tr:not(:first)', 'click', function() {
+// 				var $row = $(this).closest("tr"),        
+// 			    $tds = $row.find("td:nth-child(2)");
+// 				var selectreview = $tds[0].innerText.replace('<keyword>','').replace('</keyword>','');
+// 			});
 			$(document).delegate('.edit', 'click', function() {
 				var parent = $(this).parent().parent();
 				var id = parent.children("td:nth-child(1)")[0].innerText;
 				var review = parent.children("td:nth-child(2)")[0].innerText.replace('<keyword>','').replace('</keyword>','');
-				openForm(id,review);
+				var version = parent.children("td:nth-child(3)")[0].innerText;
+				openForm(id,review,version);
 			});
 			
 			$(document).delegate('.okedit', 'click', function() {
 				  var editidtext = document.getElementById("editid");
+				  var versiontext = document.getElementById("version");
 				  var rid = editidtext.innerHTML.replace('Review ID:','');
 				  var editingtext = document.getElementById("editingtext").value;
+				  var version = versiontext.innerHTML;
 				  var reviewtext = editingtext.value;
+				 
 				  var d = "2020-05-28 00:00:00";
 				  $.ajax({
 
@@ -260,20 +250,28 @@
 				    "method": "PUT",
 				    "headers": {
 				      "content-type": "application/json",
-				      "cache-control": "no-cache",
 				      "postman-token": "f25cfaa2-ae4e-15cc-bea6-0095af1849ca"
 				    },
 				    "processData": false,
-				    "data": "{\"review\":\""+editingtext+"\",\"datetimeEdit\":\""+d+"\"}",
-				    "success": function(response) {
-				    	alert(response.success);
+				    "data":JSON.stringify({ review: editingtext, reviewID: rid ,version : version}),
+				    "success": function(xhr) {
+				    	
 						alert('Update successfully');
 						closeForm();
-						/* name.html(name.children("input[type=text]").val());
-						buttons.html("<button  class='edit' type='button' id='" + id.html() + "'>Edit</button>&nbsp;&nbsp;<button  class='delete' type='button' id='" + id.html() + "'>Delete</button>"); */
-					},
-					error: function() {
-						alert('Error updating record');
+						},
+					error: function(xhr) {
+						if(xhr.status == 409){
+							var input = document.getElementById("reviewIdTextBox").value;
+							 var r = confirm("Cannot update data,This review has been modified by other user.\n Do you want to reload last modified?");
+							  if (r == true) {
+								  searchByReviewId(rid,true);
+							  } else{
+								  closeForm();
+							  }
+							
+						}else{
+							alert('Error updating record');
+						}
 					}
 				  });
 			});
@@ -290,6 +288,7 @@
 					tr.push('<tr>');
 					tr.push('<td>' + json[i].reviewID + '</td>');
 					tr.push('<td>' + json[i].review + '</td>');
+					tr.push('<td style="display:none;" >' + json[i].version + '</td>');
 					tr.push('<td><button class=\'edit\' type=\'button\'>Edit</button></td>');
 					tr.push('</tr>');
 				}
@@ -297,20 +296,24 @@
 			});
 		}
 
-		function searchByReviewId(){
-			input = document.getElementById("reviewIdTextBox").value;
+		function searchByReviewId(input,fromEdit){
+			
 			$.getJSON('http://localhost:5555/reviews/'+input, function(json) {
 				var tr=[];
 				$('#reviewTable tr:not(:first)').remove();
+				tr.push('<tr>');
+				tr.push('<td>' + json.reviewID + '</td>');
+				tr.push('<td>' + json.review + '</td>');
+				tr.push('<td style="display:none;" >' + json.version + '</td>');
+				tr.push('<td><button class=\'edit\' type=\'button\' >Edit</button></td>');
+				tr.push('</tr>');
 
-				for (var i = 0; i < json.length; i++) {
-					tr.push('<tr>');
-					tr.push('<td>' + json[i].reviewID + '</td>');
-					tr.push('<td>' + json[i].review + '</td>');
-					tr.push('<td><button class=\'edit\' type=\'button\' >Edit</button></td>');
-					tr.push('</tr>');
-				}
 				$('table').append($(tr.join('')));
+				if(fromEdit&&document.getElementById("myForm").style.display=="block"){
+					var editingtext = document.getElementById("editingtext");
+					  editingtext.value = json.review;
+					  document.getElementById("version").innerHTML = json.version;
+				}
 			});
 		}
 		function autocomplete(inp, arr) {
@@ -406,7 +409,9 @@
 			});
 			}
 		
-			function openForm(id,review) {
+			function openForm(id,review,version) {
+			  var versionText = document.getElementById("version");
+			  versionText.innerHTML = version;
 			  var editidtext = document.getElementById("editid");
 			  editidtext.innerHTML = 'Review ID:'+id;
 			  var editingtext = document.getElementById("editingtext");
@@ -448,7 +453,7 @@
     <h1>Edit Review</h1>
 
     <div id="editid" >Review ID :</div>
-    
+    <div id="version" style="display:none;" ></div>
     <textarea type="text" id="editingtext" style="width:250px;height:150px;" ></textarea>
 
 
