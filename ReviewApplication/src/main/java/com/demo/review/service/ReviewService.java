@@ -1,83 +1,52 @@
 package com.demo.review.service;
 
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.demo.review.controller.ReviewController;
 import com.demo.review.entities.Review;
-import com.demo.review.entities.ReviewEditRequest;
-import com.demo.review.entities.ReviewEditResponse;
-import com.demo.review.entities.ReviewTransaction;
 import com.demo.review.repositories.ReviewRepository;
-import com.demo.review.repositories.ReviewTransactionRepository;
 
-@Transactional
+
+
 @Service
 public class ReviewService {
 
 		@Autowired
 		ReviewRepository reviewRepository;
 		@Autowired
-		ReviewTransactionRepository reviewTransactionRepository;
+		private MongoTemplate mongoTemplate;
 		@Autowired 
 		ReviewController reviewController;
 		
-		public List<Review> getReviewByID(Integer id){
-			return reviewRepository.findReviewById(id);
+		
+		public Review searchReviewByID(Integer id){
+			return reviewRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
+			
 		}
 		
-		public List<Review> getReviewByText(String text){
-			return reviewRepository.findReviewByText(text);
+		public List<Review> searchReviewByKeyword(String keyword){
+			 Iterable<Review> reviews = reviewRepository.searchReviewByKeyword(keyword);
+			 reviews.forEach(review -> review.setReview(review.getReview().replace(keyword, "<keyword>"+keyword+"</keyword>")));
+			return (List<Review>) reviews;
 		} 
-		
-		public ReviewEditResponse editReview(ReviewEditRequest editReview,Integer reviewID){
-			ReviewEditResponse editResponse = new ReviewEditResponse();
-			try {
-			List<ReviewTransaction> reviewTransaction = reviewTransactionRepository.findReviewTransactionById(reviewID);
-			if(reviewTransaction!=null&&!reviewTransaction.isEmpty()) {
-				 SimpleDateFormat formatterDB=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-			     Date editDatetime = formatterDB.parse(editReview.getDatetimeEdit()); 
-			     Date lastEditDatetime = reviewTransaction.get(0).getModifiedDatetime();
-			     //Check concurrent data
-			     if(lastEditDatetime.compareTo(editDatetime)>0) {
-			    	 //return error another people updated this record.
-			    	 editResponse.setSuccess(false);
-			    	 editResponse.setMessage("Cannot update data,This review has been update by another user.");
-			    	 editResponse.setReviews(getReviewByID(reviewID));
-			    	 
-			     }else {
-
-			    	 String reviewText = editReview.getReviewText();
-			    	 reviewRepository.deleteByReviewID(reviewID);
-			    	 reviewController.editReviewData(reviewText, reviewID);
-			    	 editResponse.setSuccess(true);
-			    	 editResponse.setMessage("Update data successfully.");
-			    	 List<Review>reviews = new ArrayList<Review>();
-			    	 Review review = new Review();
-			    	 review.setReviewID(reviewID);
-			    	 review.setReviewText(reviewText);
-			    	 reviews.add(review);
-			    	 editResponse.setReviews(reviews);
-			    	 
-			     }
-			     
+		public void editReview(Review review,Integer reviewID) {
+			Query query = new Query();
+			query.addCriteria(Criteria.where("reviewID").is(reviewID).and("version").is(review.getVersion()));
+			Update update = new Update();
+			update.set("review", review.getReview());
+			if (mongoTemplate.findAndModify(query, update, Review.class) == null) {
+				throw new ResponseStatusException(HttpStatus.CONFLICT);
 			}
+		}
 		
-			}catch (Exception e) {
-				e.printStackTrace();
-				 editResponse.setSuccess(false);
-		    	 editResponse.setMessage("System Error: "+e.getMessage());
-		    	 editResponse.setReviews(getReviewByID(reviewID));
-			}
-			return editResponse;
-		} 
 	
 }

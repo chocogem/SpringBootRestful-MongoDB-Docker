@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.review.entities.Review;
-import com.demo.review.entities.ReviewEditRequest;
-import com.demo.review.entities.ReviewEditResponse;
 import com.demo.review.service.ReviewService;
 @RestController
 public class ReviewServiceController {
@@ -24,19 +22,19 @@ public class ReviewServiceController {
 
 	
 	@RequestMapping(value = "/reviews/{id}", method = RequestMethod.GET)
-	public List<Review> searchReviewByID(@PathVariable Integer id) {
-		return reviewService.getReviewByID(id);
+	public Review searchReviewByID(@PathVariable Integer id) {
+		return reviewService.searchReviewByID(id);
 		
 	}
 	
 	@RequestMapping(value = "/reviews", method = RequestMethod.GET)
-	public List<Review> searchReviewByText(@RequestParam("query") String text) {
-		return reviewService.getReviewByText(text);
+	public List<Review> searchReviewByKeyword(@RequestParam("query") String text) {
+		return reviewService.searchReviewByKeyword(text);
 	}
 	
 	@RequestMapping(value = "/reviews/{id}", method = RequestMethod.PUT)
-	public ReviewEditResponse editReview(@RequestHeader HttpHeaders httpHeader,@RequestBody ReviewEditRequest editReview,@PathVariable Integer id) {
-		return reviewService.editReview(editReview,id);
+	public void editReview(@RequestHeader HttpHeaders httpHeader,@RequestBody Review editReview,@PathVariable Integer id) {
+		reviewService.editReview(editReview,id);
 		
 	}
 	

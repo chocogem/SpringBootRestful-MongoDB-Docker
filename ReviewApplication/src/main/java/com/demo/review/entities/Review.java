@@ -1,54 +1,40 @@
 package com.demo.review.entities;
 
-import java.sql.Clob;
-import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
+@Document
 public class Review {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonIgnore
-	private UUID guid;
-	@JsonIgnore
-	private Integer seq;
 	private Integer reviewID;
-	@JsonProperty("review")
-	private String reviewText;
-	public UUID getGuid() {
-		return guid;
-	}
-	public void setGuid(UUID guid) {
-		this.guid = guid;
-	}
-	
-	
-	public int getSeq() {
-		return seq;
-	}
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-	public int getReviewID() {
+	private String review;
+	@Version
+	private Long version;
+	public Integer getReviewID() {
 		return reviewID;
 	}
 	public void setReviewID(Integer reviewID) {
 		this.reviewID = reviewID;
 	}
-	public String getReviewText() {
-		return reviewText.replace("%keyword%","<keyword>").replace("%/keyword%","</keyword>");
+	public String getReview() {
+		return review;
 	}
-	public void setReviewText(String reviewText) {
-		this.reviewText = reviewText;
+	public void setReview(String review) {
+		this.review = review;
 	}
+	public Long getVersion() {
+		return version;
+	}
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
 
 	
 	
