@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.review.entities.Review;
 import com.demo.review.service.ReviewService;
 @RestController
-public class ReviewServiceController {
+public class ReviewRestController {
 	@Autowired
 	private ReviewService reviewService;
 

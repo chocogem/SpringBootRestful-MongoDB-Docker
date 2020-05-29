@@ -14,7 +14,7 @@ import com.demo.review.repositories.ReviewRepository;
 
 
 @Component
-public class ReviewController {
+public class InitDataController {
 	 @Autowired
 	 ReviewRepository reviewRepository;
 	
