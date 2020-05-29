@@ -32,7 +32,7 @@ public class ReviewServiceControllerTest {
 	@MockBean
     private ReviewService reviewService;
     @Test
-	public void test_apiSearchReviewByIDFound() {
+	public void test_apiSearchReviewByID() {
     	 try {
     		
 		 // given
@@ -57,7 +57,7 @@ public class ReviewServiceControllerTest {
     
   
     @Test
-   	public void test_searchReviewByKeywordFound() {
+   	public void test_searchReviewByKeyword() {
        	 try {
        		
    		 // given
@@ -92,30 +92,7 @@ public class ReviewServiceControllerTest {
    	}
     
     
-    @Test
-    public void test_getReview() {
-    	try {
-    		// given
-			 Review review1 = new Review();
-			 review1.setReviewID(1);
-			 review1.setReview("ไม่ว่าจะ healthy หรือว่าแบบครีมๆจัดเต็มก็มีให้เลือกครับ");
-			 review1.setVersion(1L);
-			 //reviews.add(review1);
-			 
-			 given(reviewService.searchReviewByID(1)).willReturn(null);
-  	        
-			mockMvc.perform( MockMvcRequestBuilders
-				      .get("/reviews/{id}", 1)
-				      .accept(MediaType.APPLICATION_JSON))
-				      .andDo(print())
-				      .andExpect(status().isOk());
-				      //.andExpect(MockMvcResultMatchers.jsonPath("$.reviewID").value(1));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-	}
+
     @Test
     public void test_editReview() {
     	Integer id = 1;

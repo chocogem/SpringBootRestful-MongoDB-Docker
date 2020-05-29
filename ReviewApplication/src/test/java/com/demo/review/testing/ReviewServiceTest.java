@@ -4,6 +4,7 @@ package com.demo.review.testing;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,10 @@ public class ReviewServiceTest {
 			reviewService = new ReviewService(reviewRepository,mongoTemplate);
 			reviewRepository.deleteAll();
 	    }
-		
+		@After
+	    public void tearDown() {
+			reviewRepository.deleteAll();
+	    }
 		@Test
 		public void test_searchReviewByID(){
 			Integer id = 1;
