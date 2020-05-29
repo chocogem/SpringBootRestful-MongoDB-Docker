@@ -205,17 +205,18 @@
 			 //var countries = ["strawberry","truffle","pizza","croissant"];
 			
 			//autocomplete(document.getElementById("reviewKeywordTextBox"), countries);
-			
-			$(document).delegate('.searchReviewKeyword', 'click', function() { 
-				searchByKeyword();
-				
-			});
-			$(document).delegate('.searchReviewKeyword', 'click', function() { 
+			$(document).delegate('.searchReviewId', 'click', function() { 
 				var input = document.getElementById("reviewIdTextBox").value;
 				searchByReviewId(input,false);
 				
 			});
 			
+			
+			$(document).delegate('.searchReviewKeyword', 'click', function() { 
+				searchByKeyword();
+				
+			});
+	
 			
 			$("#reviewIdTextBox").keypress(function(event) {
     			if (event.which == 13) {
