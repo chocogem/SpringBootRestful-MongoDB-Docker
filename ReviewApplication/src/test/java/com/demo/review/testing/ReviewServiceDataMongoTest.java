@@ -31,6 +31,7 @@ public class ReviewServiceDataMongoTest {
 		@Before
 	    public void setUp() {
 			reviewService = new ReviewService(reviewRepository,mongoTemplate);
+			reviewRepository.deleteAll();
 			
 	    }
 		@After
