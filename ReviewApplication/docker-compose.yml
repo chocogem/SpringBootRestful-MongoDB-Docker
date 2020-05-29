@@ -24,7 +24,7 @@ services:
       context: .
     ports:
       - 5555:5555
-    container_name: demo
+    container_name: ReviewApplication
     environment: 
       WAIT_HOSTS: mongo:27017 
     depends_on: 
