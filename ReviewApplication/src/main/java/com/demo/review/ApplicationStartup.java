@@ -12,7 +12,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import com.demo.review.controller.ReviewController;
+import com.demo.review.controller.InitDataController;
 import com.demo.review.dictionary.repositories.FoodDictionaryRepository;
 import com.demo.review.entities.FoodDictionary;
 
@@ -22,7 +22,7 @@ implements ApplicationListener<ApplicationReadyEvent> {
   @Autowired 
   FoodDictionaryRepository foodDictionaryRepository;
   @Autowired
-  ReviewController reviewController;
+  InitDataController initDataController;
   @Override
   public void onApplicationEvent(final ApplicationReadyEvent event) {
       init();
@@ -81,10 +81,10 @@ implements ApplicationListener<ApplicationReadyEvent> {
   
   private void initReviewData() {
 	  try {
-		 reviewController.clearData();
+		 initDataController.clearData();
 	     ClassLoader classLoader = getClass().getClassLoader();
 	     InputStream  inputStream =  classLoader.getResourceAsStream("data/test_file.csv");
-		 reviewController.createReviewData(inputStream);
+	     initDataController.createReviewData(inputStream);
 	  }catch (Exception e) {
 		  e.printStackTrace();
 	  }
