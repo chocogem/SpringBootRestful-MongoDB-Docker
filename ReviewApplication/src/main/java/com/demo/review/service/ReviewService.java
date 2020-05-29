@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.demo.review.controller.ReviewController;
+import com.demo.review.controller.InitDataController;
 import com.demo.review.entities.Review;
 import com.demo.review.repositories.ReviewRepository;
 
@@ -24,7 +24,7 @@ public class ReviewService {
 		@Autowired
 		private MongoTemplate mongoTemplate;
 		@Autowired 
-		ReviewController reviewController;
+		InitDataController reviewController;
 		
 		@Autowired
 	    public ReviewService(ReviewRepository reviewRepository,MongoTemplate mongoTemplate) {
@@ -35,9 +35,10 @@ public class ReviewService {
 	
 		
 		public Review searchReviewByID(Integer id){
-			 throw new  ResponseStatusException(HttpStatus.NO_CONTENT);
+			return reviewRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
 			
 		}
+		
 		
 		public List<Review> searchReviewByKeyword(String keyword){
 			 Iterable<Review> reviews = reviewRepository.searchReviewByKeyword(keyword);
