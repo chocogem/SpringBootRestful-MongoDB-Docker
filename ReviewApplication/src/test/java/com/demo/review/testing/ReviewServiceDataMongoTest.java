@@ -22,7 +22,7 @@ import com.demo.review.service.ReviewService;
 
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 @RunWith(SpringRunner.class)
-public class ReviewServiceTest {
+public class ReviewServiceDataMongoTest {
 		private ReviewService reviewService;
 		@Autowired 
 		ReviewRepository reviewRepository;
@@ -31,7 +31,7 @@ public class ReviewServiceTest {
 		@Before
 	    public void setUp() {
 			reviewService = new ReviewService(reviewRepository,mongoTemplate);
-			reviewRepository.deleteAll();
+			
 	    }
 		@After
 	    public void tearDown() {

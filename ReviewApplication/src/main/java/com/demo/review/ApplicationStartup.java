@@ -17,8 +17,7 @@ import com.demo.review.dictionary.repositories.FoodDictionaryRepository;
 import com.demo.review.entities.FoodDictionary;
 
 @Component
-public class ApplicationStartup 
-implements ApplicationListener<ApplicationReadyEvent> {
+public class ApplicationStartup implements ApplicationListener<ApplicationReadyEvent> {
   @Autowired 
   FoodDictionaryRepository foodDictionaryRepository;
   @Autowired
