@@ -19,7 +19,6 @@ import com.demo.review.repositories.ReviewRepository;
 
 @Service
 public class ReviewService {
-
 		@Autowired
 		ReviewRepository reviewRepository;
 		@Autowired
@@ -27,14 +26,24 @@ public class ReviewService {
 		@Autowired 
 		ReviewController reviewController;
 		
+		@Autowired
+	    public ReviewService(ReviewRepository reviewRepository,MongoTemplate mongoTemplate) {
+	        this.reviewRepository = reviewRepository;
+	        this.mongoTemplate = mongoTemplate;
+	    }
+		
+	
 		
 		public Review searchReviewByID(Integer id){
-			return reviewRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
+			 throw new  ResponseStatusException(HttpStatus.NO_CONTENT);
 			
 		}
 		
 		public List<Review> searchReviewByKeyword(String keyword){
 			 Iterable<Review> reviews = reviewRepository.searchReviewByKeyword(keyword);
+			 if(reviews==null) {
+				 throw  new ResponseStatusException(HttpStatus.NO_CONTENT);
+			 }
 			 reviews.forEach(review -> review.setReview(review.getReview().replace(keyword, "<keyword>"+keyword+"</keyword>")));
 			return (List<Review>) reviews;
 		} 
