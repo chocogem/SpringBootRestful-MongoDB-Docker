@@ -31,10 +31,7 @@ public class ReviewService {
 	        this.reviewRepository = reviewRepository;
 	        this.mongoTemplate = mongoTemplate;
 	    }
-		@Autowired
-	    public ReviewService(ReviewRepository reviewRepository) {
-	        this.reviewRepository = reviewRepository;
-	    }
+	
 	
 		
 		public Review searchReviewByID(Integer id){
