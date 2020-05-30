@@ -9,23 +9,40 @@ Web application & API for search and edit reviews.
 
 
 ## Getting Started
-1.Open project with eclipse
-2.
-[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
-3.
-[![step2.jpg](https://i.postimg.cc/4NcXY87r/step2.jpg)](https://postimg.cc/F7hMqVxZ)
-4.
-[![step3.jpg](https://i.postimg.cc/Zq5Rv8hp/step3.jpg)](https://postimg.cc/fV1Z60yR)
-5.
-[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
-6.
-[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
-7.
-[![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
-How to run application.
--Run this command: docker-compose -f docker-compose.yml up -d 
+First of all you need to have docker installed first.
+then follow step below.
 
-Open Using url  http://localhost:5555 in browser.
+1.Open project with eclipse
+
+2.Right Click Project >Run as>Maven Build..
+
+[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
+
+3.Type package at Goals and click Run
+
+[![step2.jpg](https://i.postimg.cc/4NcXY87r/step2.jpg)](https://postimg.cc/F7hMqVxZ)
+
+4.Look at console build sucess >Refresh Project >Go to Target to check Jar file was build.
+
+[![step3.jpg](https://i.postimg.cc/Zq5Rv8hp/step3.jpg)](https://postimg.cc/fV1Z60yR)
+
+5.Open Power shell with administrater.
+
+[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
+
+6.Use comand cd <your project path> >Enter
+
+
+[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
+
+7.Use command docker-compose -f docker-compose.yml up -d
+for use docker run app
+
+[![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
+
+8.
+
+Enter url  http://localhost:5555 in browser.
 
 ### Prerequisites
 
