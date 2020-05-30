@@ -13,20 +13,18 @@ First of all you need to have docker installed first then follow step below.
 
 
 2.Right Click Project >Run as>Maven Build..
-[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
 
+[![step1.jpg](https://i.postimg.cc/pdXqpLXy/step1.jpg)](https://postimg.cc/bZWQ58nj)
 
 3.Type package at Goals and click Run
 
-[![step2.jpg](https://i.postimg.cc/Qtm4fK4Q/step2.jpg)](https://postimg.cc/tZ1NTJHJ)
-
+[![step2.jpg](https://i.postimg.cc/HWyRGzZx/step2.jpg)](https://postimg.cc/F1hD3yQ5)
 
 4.Look at console build sucess >Refresh Project >Go to Target to check Jar file was build.
 
 [![step3.jpg](https://i.postimg.cc/XvcQvy0R/step3.jpg)](https://postimg.cc/bGrQCrrg)
 
-
-[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
+[![step4.jpg](https://i.postimg.cc/fyc8VHpf/step4.jpg)](https://postimg.cc/H8LwKtpr)
 
 
 5.Open Power shell with administrater.
