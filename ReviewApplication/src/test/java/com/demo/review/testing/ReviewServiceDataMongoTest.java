@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import com.demo.review.entities.Review;
 import com.demo.review.repositories.ReviewRepository;
 import com.demo.review.service.ReviewService;
 
-
+@Ignore("Please Remove this annotation if you want to do unit test(it will connect to MongoDb.)")
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 @RunWith(SpringRunner.class)
 public class ReviewServiceDataMongoTest {
