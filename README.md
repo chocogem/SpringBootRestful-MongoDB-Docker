@@ -11,7 +11,7 @@ then follow step below.
 
 2.Right Click Project >Run as>Maven Build..
 
-[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
+[![step1.jpg](https://i.postimg.cc/W4kcY8gM/step1.jpg)](https://postimg.cc/yJsGkFfd)
 
 3.Type package at Goals and click Run
 
@@ -39,11 +39,11 @@ for use docker run app
 
 
 ## API Document
-[![1.png](https://i.postimg.cc/nhnsJs0j/1.png)](https://postimg.cc/56k95tcb)
+[![1.png](https://i.postimg.cc/QdNMz2dc/1.png)](https://postimg.cc/56G1Ykvt)
 
-[![2.png](https://i.postimg.cc/k51RwnNV/2.png)](https://postimg.cc/WDZ41cHj)
+[![2.png](https://i.postimg.cc/KvfGt0Dj/2.png)](https://postimg.cc/Tpyv6qSv)
 
-[![3.png](https://i.postimg.cc/PJZLtYgZ/3.png)](https://postimg.cc/7JHP9GYY)
+[![3.png](https://i.postimg.cc/26nmyG5z/3.png)](https://postimg.cc/Q9Nvnp5P)
 
 ### Unit test
 
