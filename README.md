@@ -5,11 +5,23 @@ API Document URL. http://localhost:5555/swagger-ui.html#/review45rest45controlle
 # ReviewApplication
 
 Web application & API for search and edit reviews.
-[![web1.jpg](https://i.postimg.cc/157Dz3FW/web1.jpg)](https://postimg.cc/zVWyt50W)
+[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
 
 
 ## Getting Started
-
+1.Open project with eclipse
+2.
+[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
+3.
+[![step2.jpg](https://i.postimg.cc/4NcXY87r/step2.jpg)](https://postimg.cc/F7hMqVxZ)
+4.
+[![step3.jpg](https://i.postimg.cc/Zq5Rv8hp/step3.jpg)](https://postimg.cc/fV1Z60yR)
+5.
+[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
+6.
+[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
+7.
+[![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
 How to run application.
 -Run this command: docker-compose -f docker-compose.yml up -d 
 
