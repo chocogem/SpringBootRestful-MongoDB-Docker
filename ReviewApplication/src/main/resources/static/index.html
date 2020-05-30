@@ -269,6 +269,7 @@
 				    	
 						alert('Update successfully');
 						closeForm();
+						searchByReviewId(rid,true);
 						},
 					error: function(xhr) {
 						if(xhr.status == 409){
@@ -452,7 +453,7 @@
   </div>
   
 
-<table id="reviewTable">
+<table id="reviewTable" style="width:100%;">
   <tr class="header">
     <th style="width:10%;">ReviewID</th>
     <th style="width:80%;">Review</th>
