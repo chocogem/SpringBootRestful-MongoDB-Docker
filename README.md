@@ -50,9 +50,9 @@ for use docker run app
 
 [![1-2.png](https://i.postimg.cc/wTXCN3Hk/1-2.png)](https://postimg.cc/ppdcbWm9)
 
-[![2.png](https://i.postimg.cc/KvfGt0Dj/2.png)](https://postimg.cc/Tpyv6qSv)
+[![2.png](https://i.postimg.cc/4yT84bKR/2.png)](https://postimg.cc/0McGcSdV)
 
-[![3.png](https://i.postimg.cc/26nmyG5z/3.png)](https://postimg.cc/Q9Nvnp5P)
+[![3.png](https://i.postimg.cc/sg2T222x/3.png)](https://postimg.cc/8jqRKNMg)
 
 ### Unit test
 
