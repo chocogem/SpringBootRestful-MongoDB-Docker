@@ -43,8 +43,6 @@ for use docker run app
 
 8.Enter url  http://localhost:5555 in browser.
 
-[![web1.jpg](https://i.postimg.cc/c4ghnzSM/web1.jpg)](https://postimg.cc/QHDcL0VH)
-
 
 ## API Document
 
