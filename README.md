@@ -26,11 +26,10 @@ First of all you need to have docker installed first then follow step below.
 
 [![step4.jpg](https://i.postimg.cc/ZnPhJxL1/step4.jpg)](https://postimg.cc/8fCYHW9H)
 
+[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
 
 5.Open Power shell with administrater.
 And use comand cd <your project path> >
-
-[![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
 
 [![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
 
