@@ -31,7 +31,7 @@ And use comand cd <your project path> >
 7.Use command docker-compose -f docker-compose.yml up -d
 for use docker run app
 
-[![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
+[![step7.jpg](https://i.postimg.cc/QtzNKCQb/step7.jpg)](https://postimg.cc/ftxQ6wgt)
 
 8.Enter url  http://localhost:5555 in browser.
 
@@ -39,8 +39,11 @@ for use docker run app
 
 
 ## API Document
+[![1.png](https://i.postimg.cc/QNR5Rx21/1.png)](https://postimg.cc/Z0xCNZK5)
 
-http://localhost:5555/swagger-ui.html#/review45rest45controller
+[![2.png](https://i.postimg.cc/k51RwnNV/2.png)](https://postimg.cc/WDZ41cHj)
+
+[![3.png](https://i.postimg.cc/PJZLtYgZ/3.png)](https://postimg.cc/7JHP9GYY)
 
 ### Unit test
 
@@ -49,7 +52,7 @@ there're two Unit test class in package com.demo.review.testing
 -ReviewServiceControllerTest.java
 
 -ReviewServiceDataMongoTest.java
-(***This class I put @Ignore annotation because is need to connect db you can remove it to run.***)
+(***This class I put @Ignore annotation because it need to connect db you can remove it to run.***)
 
 
 ## Built With
