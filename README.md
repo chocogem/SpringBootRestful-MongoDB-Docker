@@ -49,7 +49,7 @@ there're two Unit test class in package com.demo.review.testing
 -ReviewServiceControllerTest.java
 
 -ReviewServiceDataMongoTest.java
-(***This class i put @Ignore annotation because is need to connect db you can remove it to run.)
+(***This class I put @Ignore annotation because is need to connect db you can remove it to run.***)
 
 
 ## Built With
