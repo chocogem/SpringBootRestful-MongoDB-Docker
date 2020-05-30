@@ -2,6 +2,7 @@
 # ReviewApplication
 
 Web application & Restful API for search and edit reviews.
+[![web1.jpg](https://i.postimg.cc/c4ghnzSM/web1.jpg)](https://postimg.cc/QHDcL0VH)
 
 ## Getting Started
 First of all you need to have docker installed first.
@@ -15,7 +16,7 @@ then follow step below.
 
 3.Type package at Goals and click Run
 
-[![step2.jpg](https://i.postimg.cc/4NcXY87r/step2.jpg)](https://postimg.cc/F7hMqVxZ)
+[![step3.jpg](https://i.postimg.cc/XvcQvy0R/step3.jpg)](https://postimg.cc/bGrQCrrg)
 
 4.Look at console build sucess >Refresh Project >Go to Target to check Jar file was build.
 
@@ -35,7 +36,7 @@ for use docker run app
 
 8.Enter url  http://localhost:5555 in browser.
 
-[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
+[![web1.jpg](https://i.postimg.cc/c4ghnzSM/web1.jpg)](https://postimg.cc/QHDcL0VH)
 
 
 ## API Document
