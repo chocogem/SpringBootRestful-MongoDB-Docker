@@ -1,20 +1,19 @@
 # ReviewApplication
-How to run application.
--Run this command: docker-compose -f docker-compose.yml up -d 
-
-Open Using url  http://localhost:5555 in browser.
 
 API Document URL. http://localhost:5555/swagger-ui.html#/review45rest45controller
 
 # ReviewApplication
 
 Web application & API for search and edit reviews.
-[![FVCproductions](https://www.img.in.th/image/Umj9ds)(http://fvcproductions.com)
+[img]https://www.img.in.th/images/2b9a4959ba1d5a2c8185e63e010074ca.jpg[/img]
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+How to run application.
+-Run this command: docker-compose -f docker-compose.yml up -d 
+
+Open Using url  http://localhost:5555 in browser.
 
 ### Prerequisites
 
@@ -82,7 +81,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Chocogem** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
