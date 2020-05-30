@@ -29,9 +29,9 @@ First of all you need to have docker installed first then follow step below.
 [![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
 
 5.Open Power shell with administrater.
-And use comand cd <your project path> >
+And use comand cd <your project path> 
 
-[![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
+[![step6.jpg](https://i.postimg.cc/fT09ftR1/step6.jpg)](https://postimg.cc/PPTJtqZM)
 
 7.Use command docker-compose -f docker-compose.yml up -d
 for use docker run app
