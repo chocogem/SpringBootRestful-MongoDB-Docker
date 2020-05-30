@@ -1,9 +1,7 @@
 
 # ReviewApplication
 
-Web application & API for search and edit reviews.
-[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
-
+Web application & Restful API for search and edit reviews.
 
 ## Getting Started
 First of all you need to have docker installed first.
@@ -37,13 +35,17 @@ for use docker run app
 
 8.Enter url  http://localhost:5555 in browser.
 
+[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
 
 
 ## API Document
 http://localhost:5555/swagger-ui.html#/review45rest45controller
 
 ### Unit test
-
+there're two Unit test class in package com.demo.review.testing
+-ReviewServiceControllerTest.java
+-ReviewServiceDataMongoTest.java
+(This class i put @Ignore annotation because is need to connect db you can remove it to run.)
 
 
 ## Built With
