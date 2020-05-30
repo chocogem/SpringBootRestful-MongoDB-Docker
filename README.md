@@ -1,6 +1,3 @@
-# ReviewApplication
-
-API Document URL. http://localhost:5555/swagger-ui.html#/review45rest45controller
 
 # ReviewApplication
 
@@ -38,14 +35,12 @@ for use docker run app
 
 [![step6.jpg](https://i.postimg.cc/4NRxQkgJ/step6.jpg)](https://postimg.cc/ThQxTs1S)
 
-8.
-
-Enter url  http://localhost:5555 in browser.
+8.Enter url  http://localhost:5555 in browser.
 
 
 
 ## API Document
-
+http://localhost:5555/swagger-ui.html#/review45rest45controller
 
 ### Unit test
 
@@ -62,5 +57,5 @@ Enter url  http://localhost:5555 in browser.
 
 ## Authors
 
-* **Chocogem** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Chocogem** - *Initial work* - [chocogem](https://github.com/chocogem)
 
