@@ -12,15 +12,15 @@ then follow step below.
 
 2.Right Click Project >Run as>Maven Build..
 
-[![step1.jpg](https://i.postimg.cc/W4kcY8gM/step1.jpg)](https://postimg.cc/yJsGkFfd)
+[![step1.jpg](https://i.postimg.cc/pdXqpLXy/step1.jpg)](https://postimg.cc/bZWQ58nj)
 
 3.Type package at Goals and click Run
 
-[![step3.jpg](https://i.postimg.cc/XvcQvy0R/step3.jpg)](https://postimg.cc/bGrQCrrg)
+[![step2.jpg](https://i.postimg.cc/Qtm4fK4Q/step2.jpg)](https://postimg.cc/tZ1NTJHJ)
 
 4.Look at console build sucess >Refresh Project >Go to Target to check Jar file was build.
 
-[![step3.jpg](https://i.postimg.cc/Zq5Rv8hp/step3.jpg)](https://postimg.cc/fV1Z60yR)
+[![step3.jpg](https://i.postimg.cc/XvcQvy0R/step3.jpg)](https://postimg.cc/bGrQCrrg)
 
 [![step5.jpg](https://i.postimg.cc/zf2fCyJM/step5.jpg)](https://postimg.cc/CZDYYLnH)
 
