@@ -2,7 +2,6 @@
 # ReviewApplication
 
 Web application & Restful API for search and edit reviews.
-[![web1.jpg](https://i.postimg.cc/pTKhvDbj/web1.jpg)](https://postimg.cc/ZBKKFvqY)
 [![web1.jpg](https://i.postimg.cc/c4ghnzSM/web1.jpg)](https://postimg.cc/QHDcL0VH)
 
 ## Getting Started
@@ -13,8 +12,7 @@ then follow step below.
 1.Open project with Spring Tool Suite.
 
 2.Right Click Project >Run as>Maven Build..
-
-[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
+[![web1.jpg](https://i.postimg.cc/Wz3hR05s/web1.jpg)](https://postimg.cc/njyHB98W)
 
 3.Type package at Goals and click Run
 
