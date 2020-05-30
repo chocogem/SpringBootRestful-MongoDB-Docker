@@ -43,12 +43,13 @@ for use docker run app
 
 
 ## API Document
+Restful API
 
 [![1-2.png](https://i.postimg.cc/wTXCN3Hk/1-2.png)](https://postimg.cc/ppdcbWm9)
 
 [![2.png](https://i.postimg.cc/4yT84bKR/2.png)](https://postimg.cc/0McGcSdV)
 
-[![3-1.png](https://i.postimg.cc/MTXcchQy/3-1.png)](https://postimg.cc/mzfZJpVD)
+[![3.png](https://i.postimg.cc/qB5gNJ4q/3.png)](https://postimg.cc/NLRQVwyv)
 
 ### Unit test
 
