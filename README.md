@@ -48,7 +48,7 @@ for use docker run app
 
 ## API Document
 
-[![1.png](https://i.postimg.cc/QdNMz2dc/1.png)](https://postimg.cc/56G1Ykvt)
+[![1-2.png](https://i.postimg.cc/FzJPNCFZ/1-2.png)](https://postimg.cc/9wCPBp7R)
 
 [![2.png](https://i.postimg.cc/KvfGt0Dj/2.png)](https://postimg.cc/Tpyv6qSv)
 
