@@ -12,7 +12,7 @@ then follow step below.
 
 2.Right Click Project >Run as>Maven Build..
 
-[![step1.jpg](https://i.postimg.cc/pdXqpLXy/step1.jpg)](https://postimg.cc/bZWQ58nj)
+[![step1.jpg](https://i.postimg.cc/gjQcfQwK/step1.jpg)](https://postimg.cc/bS0jn69G)
 
 3.Type package at Goals and click Run
 
