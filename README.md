@@ -24,7 +24,7 @@ First of all you need to have docker installed first then follow step below.
 
 [![step3.jpg](https://i.postimg.cc/XvcQvy0R/step3.jpg)](https://postimg.cc/bGrQCrrg)
 
-[![step4.jpg](https://i.postimg.cc/fyc8VHpf/step4.jpg)](https://postimg.cc/H8LwKtpr)
+[![step4.jpg](https://i.postimg.cc/ZnPhJxL1/step4.jpg)](https://postimg.cc/8fCYHW9H)
 
 
 5.Open Power shell with administrater.
