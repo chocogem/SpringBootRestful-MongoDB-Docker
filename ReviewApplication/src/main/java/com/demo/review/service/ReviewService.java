@@ -35,7 +35,7 @@ public class ReviewService {
 	
 		
 		public Review searchReviewByID(Integer id){
-			return reviewRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
+			return reviewRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 			
 		}
 		
