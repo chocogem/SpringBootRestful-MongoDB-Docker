@@ -69,6 +69,7 @@ there're two Unit test class in package com.demo.review.testing
 * Spring boot
 * Docker
 * MongoDb
+* HTML,jQurey,Ajax
 
 ## Authors
 
