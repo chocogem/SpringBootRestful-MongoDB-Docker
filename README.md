@@ -7,7 +7,7 @@ Web application & Restful API for search and edit reviews.
 
 ## Getting Started
 
-First of all you need to have docker installed first and must starting then follow step below.
+First you need to have docker installed first and must starting then follow step below.
 
 1.Open project with Spring Tool Suite.
 
